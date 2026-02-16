@@ -12,12 +12,62 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Playfair Display', serif;
             background: #FAFAF8;
             color: #1a1a1a;
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 80px;
+        }
+
+        /* Glass Navigation Bar */
+        .glass-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-link {
+            font-size: 15px;
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            opacity: 0.6;
+        }
+
+        /* Brand Name */
+        .brand-name {
+            font-size: 87px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
         }
 
         /* Liquid glass blobs */
@@ -261,8 +311,8 @@
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 56px;
+        .hero h2 {
+            font-size: 42px;
             font-weight: 700;
             line-height: 1.15;
             margin-bottom: 20px;
@@ -270,7 +320,7 @@
         }
 
         .hero .subheadline {
-            font-size: 22px;
+            font-size: 17px;
             color: #4a4a4a;
             margin-bottom: 40px;
             font-weight: 400;
@@ -566,8 +616,29 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 40px;
+            body {
+                padding-top: 70px;
+            }
+
+            .glass-nav {
+                padding: 12px 0;
+            }
+
+            .nav-container {
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                font-size: 13px;
+            }
+
+            .brand-name {
+                font-size: 56px;
+            }
+
+            .hero h2 {
+                font-size: 32px;
             }
 
             .hero .subheadline {
@@ -600,6 +671,17 @@
     </style>
 </head>
 <body>
+    <!-- Glass Navigation Bar -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#samples" class="nav-link">Sample Deals</a>
+            <a href="#how" class="nav-link">How It Works</a>
+            <a href="#why" class="nav-link">Why Savora</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+        </div>
+    </nav>
+
     <!-- Liquid glass blobs -->
     <div class="glass-blob blob-1"></div>
     <div class="glass-blob blob-2"></div>
@@ -751,8 +833,9 @@
         </div>
 
         <!-- Hero Section -->
-        <section class="hero">
-            <h1>Save $50+ Every Week on Essentials & Tech</h1>
+        <section class="hero" id="home">
+            <h1 class="brand-name">Savora</h1>
+            <h2>Save $50+ Every Week on Essentials & Tech</h2>
             <p class="subheadline">5–10 real discount picks every week – no junk, real savings.</p>
             <p class="social-proof">Join 100+ weekly savers</p>
             <p class="credibility">Manually verified using price tracking tools</p>
@@ -766,7 +849,7 @@
         </section>
 
         <!-- Sample Section -->
-        <section class="sample-section">
+        <section class="sample-section" id="samples">
             <h2>This Week's Sample Finds</h2>
             
             <div class="deal-item">
@@ -791,7 +874,7 @@
         </section>
 
         <!-- How It Works -->
-        <section class="how-section">
+        <section class="how-section" id="how">
             <h2>How It Works</h2>
             
             <div class="steps">
@@ -822,7 +905,7 @@
         </section>
 
         <!-- Why Section -->
-        <section class="why-section">
+        <section class="why-section" id="why">
             <h2>Why This Matters</h2>
             <p class="benefit-statement">Unlike big deal forums full of noise and expired offers, this list is vetted weekly so you only get real, usable savings.</p>
             
@@ -835,7 +918,7 @@
         </section>
 
         <!-- FAQ Section -->
-        <section class="faq-section">
+        <section class="faq-section" id="faq">
             <h2>Questions?</h2>
             
             <div class="faq-item">
@@ -868,7 +951,7 @@
                 <input type="email" placeholder="Enter your email" required>
                 <button type="submit">Send Me This Week's Deals</button>
             </form>
-            <p class="trust-signals">Free for now. No spam. Unsubscribe anytime.</p>
+            <p class="trust-signals">Free forever. Unsubscribe anytime.</p>
         </section>
     </div>
 
