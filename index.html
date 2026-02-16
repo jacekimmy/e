@@ -840,9 +840,12 @@
             <p class="social-proof">Join 100+ weekly savers</p>
             <p class="credibility">Manually verified using price tracking tools</p>
             
-            <form class="email-form">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Send Me This Week's Deals</button>
+            <form action="https://app.us7.list-manage.com/subscribe/post?u=6dae6767a4b84904333be2e83&amp;id=ea79eb6c7c&amp;f_id=006808e0f0" method="post" id="mc-embedded-subscribe-form-hero" name="mc-embedded-subscribe-form" class="email-form validate" target="_blank">
+                <input type="email" name="EMAIL" class="required email" placeholder="Enter your email" required>
+                <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                    <input type="text" name="b_6dae6767a4b84904333be2e83_ea79eb6c7c" tabindex="-1" value="">
+                </div>
+                <button type="submit" name="subscribe">Send Me This Week's Deals</button>
             </form>
             <p class="trust-signals">Free. No spam. One weekly email. Your email is safe.</p>
             <p class="urgency-line">Next issue goes out Monday at 9am – don't miss this week's drops.</p>
@@ -947,25 +950,18 @@
             <h2>Start Saving This Week</h2>
             <p>Join hundreds of people getting real deals every Monday.</p>
             
-            <form class="email-form">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Send Me This Week's Deals</button>
+            <form action="https://app.us7.list-manage.com/subscribe/post?u=6dae6767a4b84904333be2e83&amp;id=ea79eb6c7c&amp;f_id=006808e0f0" method="post" id="mc-embedded-subscribe-form-footer" name="mc-embedded-subscribe-form" class="email-form validate" target="_blank">
+                <input type="email" name="EMAIL" class="required email" placeholder="Enter your email" required>
+                <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                    <input type="text" name="b_6dae6767a4b84904333be2e83_ea79eb6c7c" tabindex="-1" value="">
+                </div>
+                <button type="submit" name="subscribe">Send Me This Week's Deals</button>
             </form>
             <p class="trust-signals">Free forever. Unsubscribe anytime.</p>
         </section>
     </div>
 
     <script>
-        // Handle form submissions
-        document.querySelectorAll('.email-form').forEach(form => {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const email = form.querySelector('input[type="email"]').value;
-                alert('Thanks for signing up! Check your email to confirm.');
-                form.querySelector('input[type="email"]').value = '';
-            });
-        });
-
         // Parallax scroll effect for illustrations
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
