@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,807 +6,124 @@
     <title>Savora – Smart Upgrades Worth Owning</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Playfair Display', serif;
-            background: #FAFAF8;
-            color: #1a1a1a;
-            line-height: 1.6;
-            overflow-x: hidden;
-            padding-top: 80px;
-        }
-
-        /* Glass Navigation Bar */
-        .glass-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-            z-index: 1000;
-            padding: 20px 0;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .nav-link {
-            font-size: 15px;
-            color: #1a1a1a;
-            text-decoration: none;
-            transition: opacity 0.2s;
-            font-weight: 500;
-        }
-
-        .nav-link:hover {
-            opacity: 0.6;
-        }
-
-        /* Brand Name */
-        .brand-name {
-            font-size: 87px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 24px;
-            letter-spacing: -1px;
-        }
-
-        /* Liquid glass blobs */
-        .glass-blob {
-            position: fixed;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .blob-1 {
-            width: 400px;
-            height: 400px;
-            top: 10%;
-            left: -10%;
-            animation: float-1 20s ease-in-out infinite;
-        }
-
-        .blob-2 {
-            width: 350px;
-            height: 350px;
-            top: 50%;
-            right: -8%;
-            animation: float-2 18s ease-in-out infinite;
-        }
-
-        .blob-3 {
-            width: 300px;
-            height: 300px;
-            bottom: 10%;
-            left: 5%;
-            animation: float-3 22s ease-in-out infinite;
-        }
-
-        @keyframes float-1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -40px) scale(1.1); }
-            66% { transform: translate(-20px, 30px) scale(0.9); }
-        }
-
-        @keyframes float-2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-40px, 30px) scale(0.95); }
-            66% { transform: translate(25px, -35px) scale(1.05); }
-        }
-
-        @keyframes float-3 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(35px, 25px) scale(1.08); }
-            66% { transform: translate(-30px, -20px) scale(0.92); }
-        }
-
-        /* Hand-drawn illustrations */
-        .side-illustrations {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.15;
-        }
-
-        .illustration {
-            position: absolute;
-            stroke: #1a1a1a;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            transition: transform 0.1s ease-out;
-        }
-
-        .headphones-left {
-            left: 5%;
-            top: 15%;
-            width: 80px;
-            height: 80px;
-        }
-
-        .laptop-right {
-            right: 8%;
-            top: 25%;
-            width: 90px;
-            height: 70px;
-        }
-
-        .coffee-left {
-            left: 3%;
-            top: 60%;
-            width: 60px;
-            height: 70px;
-        }
-
-        .shoes-right {
-            right: 6%;
-            top: 70%;
-            width: 85px;
-            height: 60px;
-        }
-
-        .phone-right {
-            right: 10%;
-            top: 45%;
-            width: 50px;
-            height: 75px;
-        }
-
-        .watch-left {
-            left: 7%;
-            top: 35%;
-            width: 65px;
-            height: 65px;
-        }
-
-        .camera-right {
-            right: 5%;
-            top: 55%;
-            width: 75px;
-            height: 60px;
-        }
-
-        .glasses-left {
-            left: 4%;
-            top: 80%;
-            width: 70px;
-            height: 40px;
-        }
-
-        .backpack-right {
-            right: 7%;
-            top: 85%;
-            width: 70px;
-            height: 80px;
-        }
-
-        .tablet-left {
-            left: 6%;
-            top: 45%;
-            width: 65px;
-            height: 85px;
-        }
-
-        .speaker-right {
-            right: 9%;
-            top: 15%;
-            width: 55px;
-            height: 70px;
-        }
-
-        .book-left {
-            left: 8%;
-            top: 90%;
-            width: 50px;
-            height: 65px;
-        }
-
-        /* Behind content elements */
-        .behind-illustrations {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.08;
-        }
-
-        .behind-item {
-            position: absolute;
-            stroke: #1a1a1a;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            transition: transform 0.15s ease-out;
-        }
-
-        .plant-behind-1 {
-            left: 15%;
-            top: 20%;
-            width: 60px;
-            height: 80px;
-        }
-
-        .star-behind-1 {
-            right: 20%;
-            top: 35%;
-            width: 40px;
-            height: 40px;
-        }
-
-        .box-behind-1 {
-            left: 25%;
-            top: 65%;
-            width: 50px;
-            height: 50px;
-        }
-
-        .circle-behind-1 {
-            right: 15%;
-            top: 75%;
-            width: 45px;
-            height: 45px;
-        }
-
-        .lightning-behind-1 {
-            left: 18%;
-            top: 50%;
-            width: 35px;
-            height: 55px;
-        }
-
-        .heart-behind-1 {
-            right: 22%;
-            top: 60%;
-            width: 40px;
-            height: 38px;
-        }
-
-        .container {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .container > section {
-            position: relative;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 60px;
-            text-align: center;
-        }
-
-        .hero h2 {
-            font-size: 42px;
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        .hero .subheadline {
-            font-size: 17px;
-            color: #4a4a4a;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        .credibility {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 32px;
-        }
-
-        /* Email Form */
-        .email-form {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .email-form input {
-            flex: 1;
-            min-width: 250px;
-            padding: 16px 20px;
-            font-size: 17px;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            font-family: 'Playfair Display', serif;
-            transition: border-color 0.2s;
-        }
-
-        .email-form input:focus {
-            outline: none;
-            border-color: #1a1a1a;
-        }
-
-        .email-form button {
-            padding: 16px 32px;
-            font-size: 17px;
-            font-weight: 600;
-            background: #1a1a1a;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: 'Playfair Display', serif;
-            transition: background 0.2s;
-        }
-
-        .email-form button:hover {
-            background: #333;
-        }
-
-        .trust-signals {
-            font-size: 14px;
-            color: #888;
-            text-align: center;
-            margin-bottom: 8px;
-        }
-
-        .urgency-line {
-            font-size: 13px;
-            color: #666;
-            text-align: center;
-            font-style: italic;
-        }
-
-        /* Sample Section */
-        .sample-section {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 12px;
-            padding: 64px 48px;
-            margin: 80px 0;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-        }
-
-        .sample-section h2 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .psychological-anchor {
-            font-size: 17px;
-            color: #4a4a4a;
-            text-align: center;
-            margin-top: 36px;
-            font-style: italic;
-            padding: 16px;
-            background: rgba(0, 0, 0, 0.03);
-            border-radius: 6px;
-        }
-
-        .deal-item {
-            margin-bottom: 32px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .deal-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .deal-item h3 {
-            font-size: 21px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .price-info {
-            font-size: 18px;
-            color: #1a1a1a;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .price-drop {
-            font-size: 15px;
-            color: #2a7f2a;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .deal-verdict {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            padding: 4px 10px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-
-        .verdict-buy {
-            background: rgba(42, 127, 42, 0.1);
-            color: #2a7f2a;
-        }
-
-        .verdict-wait {
-            background: rgba(180, 130, 0, 0.1);
-            color: #b48200;
-        }
-
-        .verdict-skip {
-            background: rgba(180, 40, 40, 0.1);
-            color: #b42828;
-        }
-
-        .differentiator-section {
-            padding: 80px 0;
-            text-align: center;
-            border-top: 2px solid #e0e0e0;
-            border-bottom: 2px solid #e0e0e0;
-            margin: 20px 0;
-        }
-
-        .differentiator-section h2 {
-            font-size: 44px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .differentiator-section .section-intro {
-            font-size: 17px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .diff-list {
-            list-style: none;
-            max-width: 480px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .diff-list li {
-            font-size: 18px;
-            padding: 16px 0;
-            padding-left: 28px;
-            position: relative;
-            border-bottom: 1px solid #f0f0f0;
-            color: #2a2a2a;
-        }
-
-        .diff-list li:last-child {
-            border-bottom: none;
-        }
-
-        .diff-list li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-            color: #1a1a1a;
-        }
-
-        .diff-list li ul li:before {
-            content: none;
-        }
-
-        .deal-context {
-            font-size: 15px;
-            color: #888;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-
-        /* How It Works */
-        .how-section {
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .how-section h2 {
-            font-size: 44px;
-            font-weight: 700;
-            margin-bottom: 56px;
-        }
-
-        .steps {
-            display: grid;
-            gap: 40px;
-            text-align: left;
-            max-width: 520px;
-            margin: 0 auto;
-        }
-
-        .step {
-            display: flex;
-            gap: 20px;
-            align-items: start;
-        }
-
-        .step-number {
-            font-size: 32px;
-            font-weight: 700;
-            color: #ccc;
-            min-width: 44px;
-        }
-
-        .step-content h3 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .step-content p {
-            font-size: 17px;
-            color: #666;
-        }
-
-        /* Why Section */
-        .why-section {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 12px;
-            padding: 64px 48px;
-            margin: 80px 0;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-        }
-
-        .why-section h2 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 28px;
-            text-align: center;
-        }
-
-        .benefit-statement {
-            font-size: 18px;
-            color: #4a4a4a;
-            line-height: 1.7;
-            margin-bottom: 32px;
-            text-align: center;
-        }
-
-        .benefits-list {
-            list-style: none;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        .benefits-list li {
-            font-size: 18px;
-            padding: 14px 0;
-            padding-left: 32px;
-            position: relative;
-            border-bottom: 2px solid #ebebeb;
-        }
-
-        .benefits-list li:last-child {
-            border-bottom: none;
-        }
-
-        .benefits-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-            color: #2a7f2a;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            padding: 80px 0;
-            border-top: 2px solid #e0e0e0;
-        }
-
-        .faq-section h2 {
-            font-size: 44px;
-            font-weight: 700;
-            margin-bottom: 48px;
-            text-align: center;
-        }
-
-        .faq-item {
-            margin-bottom: 36px;
-            padding-bottom: 36px;
-            border-bottom: 2px solid #ebebeb;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-item h3 {
-            font-size: 21px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .faq-item p {
-            font-size: 17px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Final CTA */
-        .final-cta {
-            background: #1a1a1a;
-            color: white;
-            padding: 72px 48px;
-            text-align: center;
-            border-radius: 12px;
-            margin: 80px 0 100px;
-        }
-
-        .final-cta h2 {
-            font-size: 44px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .final-cta .cta-subtext {
-            font-size: 19px;
-            margin-bottom: 36px;
-            color: rgba(255,255,255,0.75);
-        }
-
-        .cta-form {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: nowrap;
-            margin: 0 auto 16px auto;
-            max-width: 560px;
-        }
-
-        .cta-form input[type="email"] {
-            flex: 1;
-            min-width: 0;
-            padding: 16px 20px;
-            font-size: 17px;
-            font-family: 'Playfair Display', serif;
-            background: white;
-            color: #1a1a1a;
-            border: none;
-            border-radius: 6px;
-            outline: none;
-            -webkit-appearance: none;
-            appearance: none;
-        }
-
-        .cta-form button[type="submit"] {
-            flex-shrink: 0;
-            white-space: nowrap;
-            padding: 16px 28px;
-            font-size: 17px;
-            font-weight: 600;
-            font-family: 'Playfair Display', serif;
-            background: white;
-            color: #1a1a1a;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
-            -webkit-appearance: none;
-            appearance: none;
-        }
-
-        .cta-form button[type="submit"]:hover {
-            background: #f0f0f0;
-        }
-
-        .final-cta .trust-signals {
-            color: rgba(255,255,255,0.5);
-            font-size: 14px;
-            margin-bottom: 0;
-        }
-
-        /* Mobile Responsive */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Playfair Display', serif; background: #FAFAF8; color: #1a1a1a; line-height: 1.6; overflow-x: hidden; padding-top: 80px; }
+        .glass-nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.5); z-index: 1000; padding: 20px 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: center; align-items: center; gap: 40px; }
+        .nav-link { font-size: 15px; color: #1a1a1a; text-decoration: none; transition: opacity 0.2s; font-weight: 500; }
+        .nav-link:hover { opacity: 0.6; }
+        .brand-name { font-size: 87px; font-weight: 700; text-align: center; margin-bottom: 24px; letter-spacing: -1px; }
+        .glass-blob { position: fixed; border-radius: 50%; background: rgba(255,255,255,0.4); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid rgba(255,255,255,0.5); pointer-events: none; z-index: 0; }
+        .blob-1 { width: 400px; height: 400px; top: 10%; left: -10%; animation: float-1 20s ease-in-out infinite; }
+        .blob-2 { width: 350px; height: 350px; top: 50%; right: -8%; animation: float-2 18s ease-in-out infinite; }
+        .blob-3 { width: 300px; height: 300px; bottom: 10%; left: 5%; animation: float-3 22s ease-in-out infinite; }
+        @keyframes float-1 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(30px,-40px) scale(1.1)} 66%{transform:translate(-20px,30px) scale(0.9)} }
+        @keyframes float-2 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(-40px,30px) scale(0.95)} 66%{transform:translate(25px,-35px) scale(1.05)} }
+        @keyframes float-3 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(35px,25px) scale(1.08)} 66%{transform:translate(-30px,-20px) scale(0.92)} }
+        .side-illustrations { position: fixed; top: 0; width: 100%; height: 100vh; pointer-events: none; z-index: 1; opacity: 0.15; }
+        .illustration { position: absolute; stroke: #1a1a1a; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.1s ease-out; }
+        .headphones-left { left: 5%; top: 15%; width: 80px; height: 80px; }
+        .laptop-right { right: 8%; top: 25%; width: 90px; height: 70px; }
+        .coffee-left { left: 3%; top: 60%; width: 60px; height: 70px; }
+        .shoes-right { right: 6%; top: 70%; width: 85px; height: 60px; }
+        .phone-right { right: 10%; top: 45%; width: 50px; height: 75px; }
+        .watch-left { left: 7%; top: 35%; width: 65px; height: 65px; }
+        .camera-right { right: 5%; top: 55%; width: 75px; height: 60px; }
+        .glasses-left { left: 4%; top: 80%; width: 70px; height: 40px; }
+        .backpack-right { right: 7%; top: 85%; width: 70px; height: 80px; }
+        .tablet-left { left: 6%; top: 45%; width: 65px; height: 85px; }
+        .speaker-right { right: 9%; top: 15%; width: 55px; height: 70px; }
+        .book-left { left: 8%; top: 90%; width: 50px; height: 65px; }
+        .behind-illustrations { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.08; }
+        .behind-item { position: absolute; stroke: #1a1a1a; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.15s ease-out; }
+        .plant-behind-1 { left: 15%; top: 20%; width: 60px; height: 80px; }
+        .star-behind-1 { right: 20%; top: 35%; width: 40px; height: 40px; }
+        .box-behind-1 { left: 25%; top: 65%; width: 50px; height: 50px; }
+        .circle-behind-1 { right: 15%; top: 75%; width: 45px; height: 45px; }
+        .lightning-behind-1 { left: 18%; top: 50%; width: 35px; height: 55px; }
+        .heart-behind-1 { right: 22%; top: 60%; width: 40px; height: 38px; }
+        .container { max-width: 680px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+        .container > section { position: relative; }
+        .hero { padding: 80px 0 60px; text-align: center; }
+        .hero h2 { font-size: 42px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; color: #1a1a1a; }
+        .hero .subheadline { font-size: 17px; color: #4a4a4a; margin-bottom: 40px; font-weight: 400; }
+        .credibility { font-size: 14px; color: #888; margin-bottom: 32px; }
+        .email-form { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; justify-content: center; }
+        .email-form input { flex: 1; min-width: 250px; padding: 16px 20px; font-size: 17px; border: 2px solid #e0e0e0; border-radius: 6px; font-family: 'Playfair Display', serif; transition: border-color 0.2s; }
+        .email-form input:focus { outline: none; border-color: #1a1a1a; }
+        .email-form button { padding: 16px 32px; font-size: 17px; font-weight: 600; background: #1a1a1a; color: white; border: none; border-radius: 6px; cursor: pointer; font-family: 'Playfair Display', serif; transition: background 0.2s; }
+        .email-form button:hover { background: #333; }
+        .trust-signals { font-size: 14px; color: #888; text-align: center; margin-bottom: 8px; }
+        .urgency-line { font-size: 13px; color: #666; text-align: center; font-style: italic; }
+        .sample-section { background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.6); border-radius: 12px; padding: 64px 48px; margin: 80px 0; box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+        .sample-section h2 { font-size: 42px; font-weight: 700; margin-bottom: 40px; text-align: center; }
+        .psychological-anchor { font-size: 17px; color: #4a4a4a; text-align: center; margin-top: 36px; font-style: italic; padding: 16px; background: rgba(0,0,0,0.03); border-radius: 6px; }
+        .deal-item { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid #f0f0f0; }
+        .deal-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .deal-item h3 { font-size: 21px; font-weight: 600; margin-bottom: 8px; }
+        .price-info { font-size: 18px; color: #1a1a1a; font-weight: 700; margin-bottom: 4px; }
+        .price-drop { font-size: 15px; color: #2a7f2a; font-weight: 600; margin-bottom: 6px; }
+        .deal-verdict { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; }
+        .verdict-buy { background: rgba(42,127,42,0.1); color: #2a7f2a; }
+        .verdict-wait { background: rgba(180,130,0,0.1); color: #b48200; }
+        .verdict-skip { background: rgba(180,40,40,0.1); color: #b42828; }
+        .differentiator-section { padding: 80px 0; text-align: center; border-top: 2px solid #e0e0e0; border-bottom: 2px solid #e0e0e0; margin: 20px 0; }
+        .differentiator-section h2 { font-size: 44px; font-weight: 700; margin-bottom: 16px; }
+        .differentiator-section .section-intro { font-size: 17px; color: #666; margin-bottom: 40px; }
+        .diff-list { list-style: none; max-width: 480px; margin: 0 auto; text-align: left; }
+        .diff-list li { font-size: 18px; padding: 16px 0; padding-left: 28px; position: relative; border-bottom: 1px solid #f0f0f0; color: #2a2a2a; }
+        .diff-list li:last-child { border-bottom: none; }
+        .diff-list li:before { content: "•"; position: absolute; left: 0; font-weight: 700; color: #1a1a1a; }
+        .diff-list li ul li:before { content: none; }
+        .deal-context { font-size: 15px; color: #888; font-style: italic; margin-bottom: 8px; }
+        .how-section { padding: 80px 0; text-align: center; }
+        .how-section h2 { font-size: 44px; font-weight: 700; margin-bottom: 56px; }
+        .steps { display: grid; gap: 40px; text-align: left; max-width: 520px; margin: 0 auto; }
+        .step { display: flex; gap: 20px; align-items: start; }
+        .step-number { font-size: 32px; font-weight: 700; color: #ccc; min-width: 44px; }
+        .step-content h3 { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
+        .step-content p { font-size: 17px; color: #666; }
+        .why-section { background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.6); border-radius: 12px; padding: 64px 48px; margin: 80px 0; box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+        .why-section h2 { font-size: 42px; font-weight: 700; margin-bottom: 28px; text-align: center; }
+        .benefit-statement { font-size: 18px; color: #4a4a4a; line-height: 1.7; margin-bottom: 32px; text-align: center; }
+        .benefits-list { list-style: none; max-width: 480px; margin: 0 auto; }
+        .benefits-list li { font-size: 18px; padding: 14px 0; padding-left: 32px; position: relative; border-bottom: 2px solid #ebebeb; }
+        .benefits-list li:last-child { border-bottom: none; }
+        .benefits-list li:before { content: "✓"; position: absolute; left: 0; font-weight: 700; color: #2a7f2a; }
+        .faq-section { padding: 80px 0; border-top: 2px solid #e0e0e0; }
+        .faq-section h2 { font-size: 44px; font-weight: 700; margin-bottom: 48px; text-align: center; }
+        .faq-item { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 2px solid #ebebeb; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 { font-size: 21px; font-weight: 600; margin-bottom: 10px; }
+        .faq-item p { font-size: 17px; color: #666; line-height: 1.6; }
+        .final-cta { background: #1a1a1a; color: white; padding: 72px 48px; text-align: center; border-radius: 12px; margin: 80px 0 100px; }
+        .final-cta h2 { font-size: 44px; font-weight: 700; margin-bottom: 16px; }
+        .final-cta .cta-subtext { font-size: 19px; margin-bottom: 36px; color: rgba(255,255,255,0.75); }
+        .cta-form { display: flex; gap: 12px; justify-content: center; flex-wrap: nowrap; margin: 0 auto 16px auto; max-width: 560px; }
+        .cta-form input[type="email"] { flex: 1; min-width: 0; padding: 16px 20px; font-size: 17px; font-family: 'Playfair Display', serif; background: white; color: #1a1a1a; border: none; border-radius: 6px; outline: none; -webkit-appearance: none; appearance: none; }
+        .cta-form button[type="submit"] { flex-shrink: 0; white-space: nowrap; padding: 16px 28px; font-size: 17px; font-weight: 600; font-family: 'Playfair Display', serif; background: white; color: #1a1a1a; border: none; border-radius: 6px; cursor: pointer; transition: background 0.2s; -webkit-appearance: none; appearance: none; }
+        .cta-form button[type="submit"]:hover { background: #f0f0f0; }
+        .final-cta .trust-signals { color: rgba(255,255,255,0.5); font-size: 14px; margin-bottom: 0; }
         @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-
-            .glass-nav {
-                padding: 12px 0;
-            }
-
-            .nav-container {
-                gap: 16px;
-                flex-wrap: wrap;
-            }
-
-            .nav-link {
-                font-size: 13px;
-            }
-
-            .brand-name {
-                font-size: 56px;
-            }
-
-            .hero h2 {
-                font-size: 32px;
-            }
-
-            .hero .subheadline {
-                font-size: 19px;
-            }
-
-            .email-form {
-                flex-direction: column;
-            }
-
-            .email-form input,
-            .email-form button {
-                width: 100%;
-                min-width: unset;
-            }
-
-            .sample-section,
-            .why-section {
-                padding: 36px 24px;
-            }
-
-            .final-cta {
-                padding: 48px 24px;
-            }
-
-            .cta-form {
-                flex-wrap: wrap;
-            }
-
-            .cta-form input[type="email"],
-            .cta-form button[type="submit"] {
-                width: 100%;
-                flex: none;
-            }
-
-            .side-illustrations {
-                display: none;
-            }
+            body { padding-top: 70px; }
+            .glass-nav { padding: 12px 0; }
+            .nav-container { gap: 16px; flex-wrap: wrap; }
+            .nav-link { font-size: 13px; }
+            .brand-name { font-size: 56px; }
+            .hero h2 { font-size: 32px; }
+            .hero .subheadline { font-size: 19px; }
+            .email-form { flex-direction: column; }
+            .email-form input, .email-form button { width: 100%; min-width: unset; }
+            .sample-section, .why-section { padding: 36px 24px; }
+            .final-cta { padding: 48px 24px; }
+            .cta-form { flex-wrap: wrap; }
+            .cta-form input[type="email"], .cta-form button[type="submit"] { width: 100%; flex: none; }
+            .side-illustrations { display: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Glass Navigation Bar -->
     <nav class="glass-nav">
         <div class="nav-container">
             <a href="#home" class="nav-link">Home</a>
@@ -819,50 +135,37 @@
         </div>
     </nav>
 
-    <!-- Liquid glass blobs -->
     <div class="glass-blob blob-1"></div>
     <div class="glass-blob blob-2"></div>
     <div class="glass-blob blob-3"></div>
 
-    <!-- Hand-drawn illustrations -->
     <div class="side-illustrations">
-        <!-- Headphones left -->
         <svg class="illustration headphones-left" viewBox="0 0 80 80">
             <path d="M20,25 Q20,10 40,10 Q60,10 60,25 L60,45 M20,45 L20,25" />
             <rect x="14" y="42" width="12" height="18" rx="2" />
             <rect x="54" y="42" width="12" height="18" rx="2" />
         </svg>
-
-        <!-- Laptop right -->
         <svg class="illustration laptop-right" viewBox="0 0 90 70">
             <rect x="15" y="5" width="60" height="45" rx="2" />
             <path d="M5,50 L85,50 L80,60 L10,60 Z" />
             <line x1="15" y1="50" x2="75" y2="50" />
         </svg>
-
-        <!-- Coffee cup left -->
         <svg class="illustration coffee-left" viewBox="0 0 60 70">
             <path d="M15,20 L15,50 Q15,60 25,60 L35,60 Q45,60 45,50 L45,20 Z" />
             <path d="M45,30 L50,30 Q55,30 55,35 L55,40 Q55,45 50,45 L45,45" />
             <line x1="15" y1="20" x2="45" y2="20" />
             <path d="M20,10 Q25,15 30,10" stroke-linecap="round" />
         </svg>
-
-        <!-- Shoes right -->
         <svg class="illustration shoes-right" viewBox="0 0 85 60">
             <path d="M10,30 Q10,20 20,20 L50,20 Q60,20 65,25 L75,35 Q80,40 75,45 L15,45 Q10,45 10,40 Z" />
             <path d="M20,20 L20,45" />
             <ellipse cx="35" cy="32" rx="8" ry="6" />
         </svg>
-
-        <!-- Phone right -->
         <svg class="illustration phone-right" viewBox="0 0 50 75">
             <rect x="5" y="5" width="40" height="65" rx="4" />
             <line x1="5" y1="58" x2="45" y2="58" />
             <circle cx="25" cy="63" r="3" />
         </svg>
-
-        <!-- Watch left -->
         <svg class="illustration watch-left" viewBox="0 0 65 65">
             <circle cx="32.5" cy="32.5" r="18" />
             <path d="M25,10 L40,10 L40,15 L25,15 Z" />
@@ -870,8 +173,6 @@
             <line x1="32.5" y1="32.5" x2="32.5" y2="22" />
             <line x1="32.5" y1="32.5" x2="40" y2="32.5" />
         </svg>
-
-        <!-- Camera right -->
         <svg class="illustration camera-right" viewBox="0 0 75 60">
             <rect x="8" y="15" width="60" height="40" rx="3" />
             <circle cx="38" cy="35" r="12" />
@@ -879,8 +180,6 @@
             <rect x="55" y="22" width="8" height="6" rx="1" />
             <path d="M25,15 L30,8 L45,8 L50,15" />
         </svg>
-
-        <!-- Glasses left -->
         <svg class="illustration glasses-left" viewBox="0 0 70 40">
             <circle cx="18" cy="20" r="13" />
             <circle cx="52" cy="20" r="13" />
@@ -888,8 +187,6 @@
             <path d="M5,20 L5,15" />
             <path d="M65,20 L65,15" />
         </svg>
-
-        <!-- Backpack right -->
         <svg class="illustration backpack-right" viewBox="0 0 70 80">
             <path d="M15,20 L15,70 Q15,75 20,75 L50,75 Q55,75 55,70 L55,20 Q55,15 50,15 L20,15 Q15,15 15,20 Z" />
             <rect x="25" y="30" width="20" height="25" rx="2" />
@@ -897,14 +194,10 @@
             <line x1="20" y1="40" x2="15" y2="40" />
             <line x1="50" y1="40" x2="55" y2="40" />
         </svg>
-
-        <!-- Tablet left -->
         <svg class="illustration tablet-left" viewBox="0 0 65 85">
             <rect x="8" y="5" width="50" height="75" rx="3" />
             <circle cx="33" cy="73" r="3" />
         </svg>
-
-        <!-- Speaker right -->
         <svg class="illustration speaker-right" viewBox="0 0 55 70">
             <rect x="8" y="5" width="40" height="60" rx="4" />
             <circle cx="28" cy="20" r="8" />
@@ -912,8 +205,6 @@
             <circle cx="28" cy="40" r="8" />
             <circle cx="28" cy="55" r="6" />
         </svg>
-
-        <!-- Book left -->
         <svg class="illustration book-left" viewBox="0 0 50 65">
             <rect x="8" y="5" width="35" height="55" rx="2" />
             <line x1="25" y1="5" x2="25" y2="60" />
@@ -925,61 +216,47 @@
     </div>
 
     <div class="container">
-        <!-- Behind content decorative elements -->
         <div class="behind-illustrations">
             <svg class="behind-item plant-behind-1" viewBox="0 0 60 80">
-                <path d="M30,80 L30,30" />
-                <path d="M30,35 Q20,25 15,20" />
-                <path d="M30,40 Q40,30 45,25" />
-                <path d="M30,50 Q22,42 18,38" />
-                <path d="M30,55 Q38,47 42,43" />
+                <path d="M30,80 L30,30" /><path d="M30,35 Q20,25 15,20" /><path d="M30,40 Q40,30 45,25" />
+                <path d="M30,50 Q22,42 18,38" /><path d="M30,55 Q38,47 42,43" />
                 <ellipse cx="30" cy="15" rx="8" ry="12" />
             </svg>
-
             <svg class="behind-item star-behind-1" viewBox="0 0 40 40">
                 <path d="M20,5 L24,16 L35,16 L26,23 L30,34 L20,27 L10,34 L14,23 L5,16 L16,16 Z" />
             </svg>
-
             <svg class="behind-item box-behind-1" viewBox="0 0 50 50">
                 <path d="M5,15 L25,5 L45,15 L45,40 L25,50 L5,40 Z" />
-                <line x1="5" y1="15" x2="5" y2="40" />
-                <line x1="45" y1="15" x2="45" y2="40" />
-                <line x1="25" y1="5" x2="25" y2="50" />
-                <line x1="5" y1="15" x2="25" y2="25" />
+                <line x1="5" y1="15" x2="5" y2="40" /><line x1="45" y1="15" x2="45" y2="40" />
+                <line x1="25" y1="5" x2="25" y2="50" /><line x1="5" y1="15" x2="25" y2="25" />
                 <line x1="45" y1="15" x2="25" y2="25" />
             </svg>
-
             <svg class="behind-item circle-behind-1" viewBox="0 0 45 45">
                 <circle cx="22.5" cy="22.5" r="18" />
                 <path d="M15,22.5 L20,27.5 L30,17.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-
             <svg class="behind-item lightning-behind-1" viewBox="0 0 35 55">
                 <path d="M20,5 L8,28 L18,28 L15,50 L30,22 L20,22 Z" />
             </svg>
-
             <svg class="behind-item heart-behind-1" viewBox="0 0 40 38">
                 <path d="M20,35 Q8,25 5,18 Q3,12 6,8 Q9,4 14,6 Q17,7 20,12 Q23,7 26,6 Q31,4 34,8 Q37,12 35,18 Q32,25 20,35 Z" />
             </svg>
         </div>
 
-        <!-- Hero Section -->
         <section class="hero" id="home">
             <h1 class="brand-name">Savora</h1>
             <h2>Core tech for students and career starters.</h2>
             <p class="subheadline" style="margin-bottom: 8px;">3–6 verified price drops on tech that matters every Monday.</p>
             <p class="credibility">Every deal checked against 6-month price history.</p>
-            
             <form action="https://app.kit.com/forms/9099251/subscriptions" method="post" class="email-form">
                 <input type="email" name="email_address" placeholder="Enter your email" required>
                 <button type="submit">Get Monday's Picks</button>
+            </form>
             <p class="urgency-line">Prices move fast. Next issue goes out Monday at 9am.</p>
         </section>
 
-        <!-- Sample Section -->
         <section class="sample-section" id="samples">
             <h2>This Week's Sample Finds</h2>
-            
             <div class="deal-item">
                 <span class="deal-verdict verdict-buy">🟢 BUY</span>
                 <h3>Sony WH-1000XM5 Headphones</h3>
@@ -987,7 +264,6 @@
                 <p class="price-info">Now $298</p>
                 <p class="price-drop">Was $399 – lowest price in 6 months – unlikely to last</p>
             </div>
-
             <div class="deal-item">
                 <span class="deal-verdict verdict-buy">🟢 BUY</span>
                 <h3>Keychron K2 Wireless Mechanical Keyboard</h3>
@@ -995,7 +271,6 @@
                 <p class="price-info">Now $79</p>
                 <p class="price-drop">Was $99 – rare discount – best price this year</p>
             </div>
-
             <div class="deal-item">
                 <span class="deal-verdict verdict-wait">🟡 WAIT</span>
                 <h3>Anker 727 Charging Station (6-in-1)</h3>
@@ -1003,11 +278,9 @@
                 <p class="price-info">Now $38</p>
                 <p class="price-drop">Was $56 – 32% off – historically low</p>
             </div>
-
             <p class="psychological-anchor">Three upgrades that would have cost $554 last month. Now $415.</p>
         </section>
 
-        <!-- What Makes Savora Different -->
         <section class="differentiator-section" id="different">
             <h2>What Makes Savora Different</h2>
             <p class="section-intro">Every deal site claims to be curated. Here's what actually sets this apart.</p>
@@ -1024,42 +297,18 @@
             </ul>
         </section>
 
-        <!-- How It Works -->
         <section class="how-section" id="how">
             <h2>How It Works</h2>
-            
             <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Sign up free</h3>
-                        <p>Add your email. No payment needed.</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Receive 3–6 smart upgrades every Monday</h3>
-                        <p>Verified picks only. No filler.</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Save money instantly</h3>
-                        <p>Click and buy. Real deals, real savings.</p>
-                    </div>
-                </div>
+                <div class="step"><div class="step-number">1</div><div class="step-content"><h3>Sign up free</h3><p>Add your email. No payment needed.</p></div></div>
+                <div class="step"><div class="step-number">2</div><div class="step-content"><h3>Receive 3–6 smart upgrades every Monday</h3><p>Verified picks only. No filler.</p></div></div>
+                <div class="step"><div class="step-number">3</div><div class="step-content"><h3>Save money instantly</h3><p>Click and buy. Real deals, real savings.</p></div></div>
             </div>
         </section>
 
-        <!-- Why Section -->
         <section class="why-section" id="why">
             <h2>Why This Matters</h2>
             <p class="benefit-statement">Most deal sites flood you with random junk. Savora focuses on tech people actually use – headphones, laptops, chargers, smart home gear – and only when prices hit real lows.</p>
-            
             <ul class="benefits-list">
                 <li>Save time – no scrolling through junk</li>
                 <li>Save real money – verified deals only</li>
@@ -1068,41 +317,18 @@
             </ul>
         </section>
 
-        <!-- FAQ Section -->
         <section class="faq-section" id="faq">
             <h2>Questions?</h2>
-            
-            <div class="faq-item">
-                <h3>Is this really free?</h3>
-                <p>Yes. Completely free. No hidden costs, no upsells.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Where do the deals come from?</h3>
-                <p>We track historical pricing data and only send deals that hit real lows.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How often will I get emails?</h3>
-                <p>Once a week, every Monday. That's it.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Can I unsubscribe anytime?</h3>
-                <p>Of course. One click unsubscribe at the bottom of every email.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Do you use affiliate links?</h3>
-                <p>Yes. We may earn a small commission if you buy through our links. It never changes your price.</p>
-            </div>
+            <div class="faq-item"><h3>Is this really free?</h3><p>Yes. Completely free. No hidden costs, no upsells.</p></div>
+            <div class="faq-item"><h3>Where do the deals come from?</h3><p>We track historical pricing data and only send deals that hit real lows.</p></div>
+            <div class="faq-item"><h3>How often will I get emails?</h3><p>Once a week, every Monday. That's it.</p></div>
+            <div class="faq-item"><h3>Can I unsubscribe anytime?</h3><p>Of course. One click unsubscribe at the bottom of every email.</p></div>
+            <div class="faq-item"><h3>Do you use affiliate links?</h3><p>Yes. We may earn a small commission if you buy through our links. It never changes your price.</p></div>
         </section>
 
-        <!-- Final CTA -->
         <section class="final-cta">
             <h2>Join Savora.</h2>
             <p class="cta-subtext">The best tech deals. Every Monday. No noise.</p>
-            
             <form action="https://app.kit.com/forms/9099251/subscriptions" method="post" class="cta-form">
                 <input type="email" name="email_address" placeholder="Enter your email" required>
                 <button type="submit">Get Monday's Picks</button>
@@ -1112,24 +338,15 @@
     </div>
 
     <script>
-        // Parallax scroll effect for illustrations
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
-            
-            const illustrations = document.querySelectorAll('.side-illustrations .illustration');
-            illustrations.forEach((illust, index) => {
+            document.querySelectorAll('.side-illustrations .illustration').forEach((illust, index) => {
                 const speed = 0.3 + (index * 0.1);
-                const yPos = -(scrolled * speed);
-                const rotation = scrolled * 0.02 * (index % 2 === 0 ? 1 : -1);
-                illust.style.transform = `translateY(${yPos}px) rotate(${rotation}deg)`;
+                illust.style.transform = \`translateY(\${-(scrolled * speed)}px) rotate(\${scrolled * 0.02 * (index % 2 === 0 ? 1 : -1)}deg)\`;
             });
-
-            const behindItems = document.querySelectorAll('.behind-item');
-            behindItems.forEach((item, index) => {
+            document.querySelectorAll('.behind-item').forEach((item, index) => {
                 const speed = 0.15 + (index * 0.05);
-                const yPos = -(scrolled * speed);
-                const rotation = scrolled * 0.01 * (index % 2 === 0 ? 1 : -1);
-                item.style.transform = `translateY(${yPos}px) rotate(${rotation}deg)`;
+                item.style.transform = \`translateY(\${-(scrolled * speed)}px) rotate(\${scrolled * 0.01 * (index % 2 === 0 ? 1 : -1)}deg)\`;
             });
         });
     </script>
