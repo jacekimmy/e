@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -523,6 +524,10 @@
             color: #1a1a1a;
         }
 
+        .diff-list li ul li:before {
+            content: none;
+        }
+
         .deal-context {
             font-size: 15px;
             color: #888;
@@ -961,9 +966,9 @@
         <!-- Hero Section -->
         <section class="hero" id="home">
             <h1 class="brand-name">Savora</h1>
-            <h2>Core tech for students and career starters.</h2>
+            <h2>Build your setup without overpaying.</h2>
             <p class="subheadline" style="margin-bottom: 8px;">Smart tech upgrades for students and career starters.</p>
-            <p class="subheadline">3–6 verified price drops on tech every Monday.</p>
+            <p class="subheadline">3–6 verified price drops on tech that actually matters. Every Monday.</p>
             <p class="credibility">Every deal checked against 6-month price history.</p>
             
             <form action="https://app.kit.com/forms/9099251/subscriptions" method="post" class="email-form">
@@ -1008,11 +1013,14 @@
             <h2>What Makes Savora Different</h2>
             <p class="section-intro">Every deal site claims to be curated. Here's what actually sets this apart.</p>
             <ul class="diff-list">
-                <li>Tech students and career starters actually buy: headphones, laptops, monitors, and other essentials that power your day</li>
+                <li>Only tech students and career starters actually use – headphones, laptops, chargers, smart home gear</li>
                 <li>Only when prices hit 6-month or all-time lows – not just a sale</li>
                 <li>Every product gets a simple verdict:
-Buy – Strong price + good product
-Wait – Good product, not at a real low yet</li>
+                    <ul style="list-style: none; margin-top: 10px; padding-left: 4px;">
+                        <li style="border: none; padding: 5px 0; font-size: 16px; color: #2a2a2a;">Buy – Strong price + good product</li>
+                        <li style="border: none; padding: 5px 0; font-size: 16px; color: #2a2a2a;">Wait – Good product, not at a real low yet</li>
+                    </ul>
+                </li>
                 <li>Refurb option included when it's the smarter buy</li>
             </ul>
         </section>
@@ -1100,7 +1108,7 @@ Wait – Good product, not at a real low yet</li>
                 <input type="email" name="email_address" placeholder="Enter your email" required>
                 <button type="submit">Send Me This Week's Drops</button>
             </form>
-            <p class="trust-signals">Free. No spam. Unsubscribe anytime.</p>
+            <p class="trust-signals">Free for now. Unsubscribe anytime.</p>
         </section>
     </div>
 
